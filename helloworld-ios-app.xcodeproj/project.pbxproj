@@ -135,6 +135,7 @@
 				TargetAttributes = {
 					48ED7C361C03192D000A368F = {
 						CreatedOnToolsVersion = 7.1.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -332,6 +333,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.feedhenry.Helloworld-app-iOS";
 				PRODUCT_NAME = "helloworld-ios-app";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -353,6 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.feedhenry.Helloworld-app-iOS";
 				PRODUCT_NAME = "helloworld-ios-app";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
