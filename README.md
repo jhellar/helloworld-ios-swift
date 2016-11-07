@@ -4,17 +4,17 @@
 
 Author: Corinne Krych, Daniel Passos   
 Level: Intermediate  
-Technologies: Swift, iOS, RHMAP, CocoaPods.
+Technologies: Swift 2.3, iOS, RHMAP, CocoaPods.
 Summary: A demonstration of how to get started with remote cloud call in RHMAP.
 Community Project : [Feed Henry](http://feedhenry.org)
 Target Product: RHMAP  
 Product Versions: RHMAP 3.7.0+   
 Source: https://github.com/feedhenry-templates/helloworld-ios  
-Prerequisites: fh-ios-sdk : 3.+, Xcode : 7.2+, iOS SDK : iOS7+, CocoaPods 1.0.1+
+Prerequisites: fh-ios-swift-sdk : 4.2+, Xcode : 8+, iOS SDK : iOS8+, CocoaPods 1.1.0+
 
 ## What is it?
 
-Simple native iOS app to test your remote cloud connection in RHMAP. Its server side companion app: [HelloWorld Cloud App](https://github.com/feedhenry-templates/helloworld-cloud). This template app demos how to intialize a cloud call and make calls to cloud endpoints. The app uses [fh-ios-sdk](https://github.com/feedhenry/fh-ios-sdk).
+Simple native iOS app to test your remote cloud connection in RHMAP. Its server side companion app: [HelloWorld Cloud App](https://github.com/feedhenry-templates/helloworld-cloud). This template app demos how to intialize a cloud call and make calls to cloud endpoints. The app uses [fh-ios-swift-sdk](https://github.com/feedhenry/fh-ios-swift-sdk).
 
 If you do not have access to a RHMAP instance, you can sign up for a free instance at [https://openshift.feedhenry.com/](https://openshift.feedhenry.com/).
 
@@ -32,10 +32,10 @@ If you wish to contribute to this template, the following information may be hel
 
 1. Clone this project
 1. Populate ```iOS-Template-App/fhconfig.plist``` with your values as explained [here](http://docs.feedhenry.com/v3/dev_tools/sdks/ios.html#ios-configure).
-1. Run ```pod install``` 
+1. Run ```pod install```
 1. Open Helloworld-app-iOS.xcworkspace
 1. Run the project
- 
+
 ## How does it work?
 
 ### Init
