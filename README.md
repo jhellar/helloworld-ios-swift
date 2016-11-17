@@ -60,16 +60,16 @@ override func viewDidLoad() {
 
 ### Cloud call
 
-In ```helloworld-ios-app/HomeViewController.HomeViewController.swift``` the FH.init call is done:
+In ```helloworld-ios-app/HomeViewController.swift``` the FH.init call is done:
 
 ```
-@IBAction func cloudCall(sender: AnyObject) {
+@IBAction func cloudCall(_ sender: AnyObject) {
     name.endEditing(true)
 
     let args = ["hello": name.text ?? "world"]
 
     FH.cloud("hello", method: HTTPMethod.POST,
-        args: args, headers: nil,
+        args: args as [String : AnyObject]?, headers: nil,
         completionHandler: {(resp: Response, error: NSError?) -> Void in
         if let _ = error {
             print("initialize fail, \(resp.rawResponseAsString)")
