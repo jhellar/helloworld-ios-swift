@@ -4,13 +4,13 @@
 
 Author: Corinne Krych, Daniel Passos   
 Level: Intermediate  
-Technologies: Swift 2.3, iOS, RHMAP, CocoaPods.
+Technologies: Swift 3, iOS, RHMAP, CocoaPods.
 Summary: A demonstration of how to get started with remote cloud call in RHMAP.
 Community Project : [Feed Henry](http://feedhenry.org)
 Target Product: RHMAP  
 Product Versions: RHMAP 3.7.0+   
 Source: https://github.com/feedhenry-templates/helloworld-ios  
-Prerequisites: fh-ios-swift-sdk : 4.2+, Xcode : 8+, iOS SDK : iOS8+, CocoaPods 1.1.0+
+Prerequisites: fh-ios-swift-sdk : 5+, Xcode : 8+, iOS SDK : iOS8+, CocoaPods 1.1.0+
 
 ## What is it?
 
@@ -60,16 +60,16 @@ override func viewDidLoad() {
 
 ### Cloud call
 
-In ```helloworld-ios-app/HomeViewController.HomeViewController.swift``` the FH.init call is done:
+In ```helloworld-ios-app/HomeViewController.swift``` the FH.init call is done:
 
 ```
-@IBAction func cloudCall(sender: AnyObject) {
+@IBAction func cloudCall(_ sender: AnyObject) {
     name.endEditing(true)
 
     let args = ["hello": name.text ?? "world"]
 
     FH.cloud("hello", method: HTTPMethod.POST,
-        args: args, headers: nil,
+        args: args as [String : AnyObject]?, headers: nil,
         completionHandler: {(resp: Response, error: NSError?) -> Void in
         if let _ = error {
             print("initialize fail, \(resp.rawResponseAsString)")
