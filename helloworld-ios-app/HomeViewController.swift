@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
 
         let args = ["hello": name.text ?? "world"]
 
-        FH.cloud("hello", method: HTTPMethod.POST,
+        FH.cloud(path: "hello", method: HTTPMethod.POST,
             args: args as [String : AnyObject]?, headers: nil,
             completionHandler: {(resp: Response, error: NSError?) -> Void in
             if let error = error {
