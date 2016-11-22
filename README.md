@@ -50,10 +50,15 @@ override func viewDidLoad() {
     FH.init {(resp: Response, error: NSError?) -> Void in
         if let error = error {
             print("FH init failed. Error = \(error)")
-            self.result.text = "Please fill in fhconfig.plist file."
+            if FH.isOnline == false {
+                self.result.text = "Make sure you're online."
+            } else {
+                self.result.text = "Please fill in fhconfig.plist file."
+            }
+            return
         }
         print("initialized OK")
-        self.button.hidden = false
+        self.button.isHidden = false
     }
 }
 ```
@@ -68,12 +73,13 @@ In ```helloworld-ios-app/HomeViewController.swift``` the FH.init call is done:
 
     let args = ["hello": name.text ?? "world"]
 
-    FH.cloud("hello", method: HTTPMethod.POST,
+    FH.cloud(path: "hello", method: HTTPMethod.POST,
         args: args as [String : AnyObject]?, headers: nil,
         completionHandler: {(resp: Response, error: NSError?) -> Void in
-        if let _ = error {
-            print("initialize fail, \(resp.rawResponseAsString)")
-            self.button.hidden = true
+        if let error = error {
+            print("Cloud Call Failed, \(error)")
+            self.result.text = "Error during Cloud call: \(error.userInfo[NSLocalizedDescriptionKey]!)"
+            return
         }
         if let parsedRes = resp.parsedResponse as? [String:String] {
             self.result.text = parsedRes["msg"]
