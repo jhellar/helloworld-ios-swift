@@ -38,18 +38,18 @@ class HomeViewController: UIViewController {
                 return
             }
             print("initialized OK")
-            self.button.hidden = false
+            self.button.isHidden = false
         }
     }
 
 
-    @IBAction func cloudCall(sender: AnyObject) {
+    @IBAction func cloudCall(_ sender: AnyObject) {
         name.endEditing(true)
 
         let args = ["hello": name.text ?? "world"]
 
-        FH.cloud("hello", method: HTTPMethod.POST,
-            args: args, headers: nil,
+        FH.cloud(path: "hello", method: HTTPMethod.POST,
+            args: args as [String : AnyObject]?, headers: nil,
             completionHandler: {(resp: Response, error: NSError?) -> Void in
             if let error = error {
                 print("Cloud Call Failed, \(error)")
@@ -63,11 +63,11 @@ class HomeViewController: UIViewController {
     }
 
     // Mark - Dismiss keyboard
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = touches.first {
             name.endEditing(true)
         }
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
     }
 
 }
